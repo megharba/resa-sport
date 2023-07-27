@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
   }
 
   addProduct() {
-    let data = this.createProductData(this.productForm)
+    const data = this.createProductData(this.productForm)
     this.productService.createProduct(data).subscribe(response => {
       console.log(response)
       this.getProducts();
@@ -59,17 +59,17 @@ export class ProductListComponent implements OnInit {
   }
 
   updateProduct(){
-    let data = this.createProductData(this.productForm)
+    const data = this.createProductData(this.productForm)
     this.productService.editProduct(data).subscribe(response => console.log(response));
     this.getProducts()
     this.resetValues()
   }
   createProductData(productFormData : FormGroup){
 
-    let data : Product = {
-      name: productFormData.get("name")?.value!,
-      id: +productFormData.get("id")?.value!,
-      price: +productFormData.get("price")?.value!
+    const data : Product = {
+      name: productFormData.get("name")?.value,
+      id: +productFormData.get("id")?.value,
+      price: +productFormData.get("price")?.value
     };
     return data
   }
