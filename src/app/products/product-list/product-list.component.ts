@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from "../product.model"
 import { ProductService } from "../product.service"
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -12,14 +13,15 @@ export class ProductListComponent implements OnInit {
   productForm = new FormGroup({
     name: new FormControl(''),
     id:new FormControl(''),
-    price: new FormControl('')
+    price: new FormControl(''),
+    desc: new FormControl('')
   })
   edit = true;
   add = false;
   products: Product[] = [];
   productFormData: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService , private router: Router) {}
 
   ngOnInit(): void {
     this.getProducts()
@@ -69,8 +71,15 @@ export class ProductListComponent implements OnInit {
     const data : Product = {
       name: productFormData.get("name")?.value,
       id: +productFormData.get("id")?.value,
-      price: +productFormData.get("price")?.value
+      price: +productFormData.get("price")?.value,
+      desc: productFormData.get("desc")?.value
     };
     return data
   }
+
+  goToProductDetails(productId: number) {
+    // Naviguer vers le composant ProductDetailsComponent en passant l'ID du produit comme paramètre
+    this.router.navigate(['product-details', productId]);
+  }
+  
 }

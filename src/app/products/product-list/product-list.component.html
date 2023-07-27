@@ -4,6 +4,9 @@
         <div class="product-info">
             <h3 class="product-title">{{ product.name }}</h3>
             <p class="product-price">{{ product.price }} €</p>
+           <!--<td><button (click)="setProductEdit(product)">Update</button></td>--> 
+           <!--<td><button (click)="removeProduct(product)">Delete</button></td>--> 
+           <button (click)="goToProductDetails(product.id)">Détails</button>
         </div>
     </div>
 </div>

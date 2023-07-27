@@ -20,6 +20,17 @@ export class ProductService {
     );
   }
 
+  getProductById(id: number): Observable<Product> {
+    const url = this.productsUrl + id;
+    return this.http.get<Product>(url).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  }
+
+
   createProduct(product: Product): Observable<Product> {
     product.id = 0;
     return this.http.post<Product>(this.productsUrl, product).pipe(
