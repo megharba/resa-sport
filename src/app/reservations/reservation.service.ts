@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Reservation } from './reservation.module';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Reservation } from './reservation.model';
+import { Observable, catchError, retry, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,29 +9,31 @@ import { HttpClient } from '@angular/common/http';
 export class ReservationService {
 
   
-  private reservationsUrl = 'api/reservations'; // Remplacez cette URL par l'URL de votre backend pour gérer les réservations
+  private reservationsUrl = 'api/reservations'; // Remplacez cette URL par l'URL du backend pour gérer les réservations
 
   constructor(private http: HttpClient) { }
 
-  // Récupérer toutes les réservations
   getReservations(): Observable<Reservation[]> {
-    return this.http.get<Reservation[]>(this.reservationsUrl);
+    return this.http.get<Reservation[]>(this.reservationsUrl).pipe(
+      retry(2),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
   }
 
-  // Ajouter une nouvelle réservation
   addReservation(reservation: Reservation): Observable<Reservation> {
-    return this.http.post<Reservation>(this.reservationsUrl, reservation);
+    reservation.id = 0;
+    return this.http.post<Reservation>(this.reservationsUrl, reservation).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
   }
 
-  // Mettre à jour une réservation existante
-  updateReservation(reservation: Reservation): Observable<Reservation> {
-    const url = `${this.reservationsUrl}/${reservation.id}`;
-    return this.http.put<Reservation>(url, reservation);
-  }
-
-  // Supprimer une réservation
-  deleteReservation(reservationId: number): Observable<any> {
-    const url = `${this.reservationsUrl}/${reservationId}`;
-    return this.http.delete(url);
+  deleteReservation(id: number): Observable<any> {
+    return this.http.delete(this.reservationsUrl + id);
   }
 }

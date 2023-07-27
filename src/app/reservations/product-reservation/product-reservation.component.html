@@ -1,13 +1,12 @@
-<p>product-reservation works!</p>
-<!-- product-reservation.component.html -->
+
 <div class="reservation-form">
     <h2>Réserver ce produit</h2>
     <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
         <div>
-            <label for="userName">Nom de l'utilisateur :</label>
-            <input type="text" id="userName" formControlName="userName">
-            <div *ngIf="reservationForm.get('userName')?.invalid && reservationForm.get('userName')?.touched">
-                <div *ngIf="reservationForm.get('userName')?.hasError('required')">Nom d'utilisateur requis</div>
+            <label for="userId">Nom de l'utilisateur :</label>
+            <input type="text" id="userId" formControlName="userId">
+            <div *ngIf="reservationForm.get('userId')?.invalid && reservationForm.get('userId')?.touched">
+                <div *ngIf="reservationForm.get('userId')?.hasError('required')">Nom d'utilisateur requis</div>
             </div>
         </div>
         <div>

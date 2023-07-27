@@ -1,7 +1,7 @@
 export interface Reservation {
     id: number;
     productId: number;
-    userName: number;
+    userId: number;
     reservationDate: Date;
     reservationTime: string;
 }
