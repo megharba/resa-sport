@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductListComponent } from '../product-list/product-list.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
@@ -34,6 +34,9 @@ export class ProductDetailsComponent implements OnInit{
   }
   goToProductReservation() {
     // Rediriger vers la page de réservation du produit en fonction de l'ID du produit
+   /**  const navigationExtras: NavigationExtras = {
+      queryParams: { productId: this.productId }
+    };**/
     this.router.navigate(['/product-reservations', this.productId]);
   }
   

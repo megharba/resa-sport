@@ -1,16 +1,32 @@
-.product-name {
+
+.reservation-list {
+    margin: 20px;
+  }
+  
+  h2 {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
     margin-bottom: 10px;
   }
   
-  .product-desc {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
+  .reservation-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
   }
-  button {
+  
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -18,8 +34,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #0056b3;
-  }
+}

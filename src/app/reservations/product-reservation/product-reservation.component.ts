@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Reservation } from '../reservation.module';
+import { Reservation } from '../reservation.model';
 import { ReservationService } from '../reservation.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class ProductReservationComponent implements OnInit {
     private reservationService: ReservationService
   ) {
     this.reservationForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
+      userId: new FormControl('', Validators.required),
       reservationDate: new FormControl('', Validators.required),
       reservationTime: new FormControl('', Validators.required)
     });
@@ -37,7 +37,7 @@ export class ProductReservationComponent implements OnInit {
       const reservation: Reservation = {
         id: 0,
         productId: this.productId,
-        userName: this.reservationForm.get('userid')?.value,
+        userId: this.reservationForm.get('userId')?.value,
         reservationDate: this.reservationForm.get('reservationDate')?.value,
         reservationTime: this.reservationForm.get('reservationTime')?.value
       };
