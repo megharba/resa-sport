@@ -9,12 +9,14 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './data.services';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductReservationComponent } from './reservations/product-reservation/product-reservation.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
+    ProductReservationComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,9 +20,9 @@ export class DataService implements InMemoryDbService {
     ]
 
     const reservations =[
-        {id:1,userid:1, productid:2},
-        {id:2,userid:2, productid:1},
-        {id:3,userid:3, productid:3}
+        {id:1,userid:1, productid:2,reservationDate:"23-08-2023",reservationTime:"14:34"},
+        {id:2,userid:2, productid:1,reservationDate:"01-08-2023",reservationTime:"14:34"},
+        {id:3,userid:3, productid:3,reservationDate:"07-08-2023",reservationTime:"14:34"}
     ]
     return {users,products,reservations};
   }
