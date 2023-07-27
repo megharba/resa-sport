@@ -1,4 +1,4 @@
-# ResaSport
+# ResaSport Bruno Megharba Arthur Estrems Clement Deborde 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
