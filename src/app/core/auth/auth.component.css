@@ -1,0 +1,10 @@
+.container {
+  color: snow;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-password {
+  margin-bottom: 10px;
+}

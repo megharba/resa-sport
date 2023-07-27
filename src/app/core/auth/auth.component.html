@@ -1,0 +1,21 @@
+<div class="container" >
+  <h1>Connexion</h1>
+  <mat-form-field class="username">
+    <mat-icon matPrefix >person</mat-icon>
+    <input matInput [formControl]="userFC" placeholder="Utilisateur">
+  </mat-form-field>
+  <mat-form-field class="password">
+    <mat-icon matPrefix >lock</mat-icon>
+    <input matInput [formControl]="pwdFC" type="{{showPassword ? 'text' : 'password'}}" placeholder="Mot de Passe">
+  </mat-form-field>
+  <div class="show-password">
+    <mat-slide-toggle [(ngModel)]="showPassword"></mat-slide-toggle>
+    <span>Afficher le mot de passe</span>
+  </div>
+
+  <div>
+    <button mat-button (click)="closeDialog()">Retour</button>
+    <button mat-button (click)="tryConnection()">Connexion</button>
+  </div>
+</div>
+

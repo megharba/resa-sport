@@ -1,11 +1,13 @@
+<app-menu></app-menu>
+
 <div class="cards-container">
     <div class="card" *ngFor="let product of products">
         <img class="product-image" src="assets/images/hotel-luxe-paris.jpg" alt="Image du produit">
         <div class="product-info">
             <h3 class="product-title">{{ product.name }}</h3>
             <p class="product-price">{{ product.price }} €</p>
-           <!--<td><button (click)="setProductEdit(product)">Update</button></td>--> 
-           <!--<td><button (click)="removeProduct(product)">Delete</button></td>--> 
+           <!--<td><button (click)="setProductEdit(product)">Update</button></td>-->
+           <!--<td><button (click)="removeProduct(product)">Delete</button></td>-->
            <button (click)="goToProductDetails(product.id)">Détails</button>
         </div>
     </div>

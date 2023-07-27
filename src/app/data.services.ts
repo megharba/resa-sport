@@ -8,9 +8,9 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class DataService implements InMemoryDbService {
   createDb() {
     const users =[
-        {id:1,name:"Bruno"},
-        {id:2,name:"Marc"},
-        {id:3,name:"Auriane"}
+        {id:1,name:"Bruno", pwd: "AZERTY"},
+        {id:2,name:"Marc", pwd: "AZERTY"},
+        {id:3,name:"Auriane", pwd: "AZERTY"}
     ]
 
     const products =[
@@ -24,6 +24,7 @@ export class DataService implements InMemoryDbService {
         {id:2,userid:2, productid:1,reservationDate:"01-08-2023",reservationTime:"14:34"},
         {id:3,userid:3, productid:3,reservationDate:"07-08-2023",reservationTime:"14:34"}
     ]
+
     return {users,products,reservations};
   }
 }
