@@ -81,5 +81,5 @@ export class ProductListComponent implements OnInit {
     // Naviguer vers le composant ProductDetailsComponent en passant l'ID du produit comme paramètre
     this.router.navigate(['product-details', productId]);
   }
-  
+
 }

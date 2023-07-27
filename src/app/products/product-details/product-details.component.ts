@@ -4,6 +4,7 @@ import { ProductListComponent } from '../product-list/product-list.component';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class ProductDetailsComponent implements OnInit{
   productId!: number;
   product: Product | undefined;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private productService: ProductService,private router: Router) {}
 
   ngOnInit() {
     // Récupérer l'ID du produit à partir de l'URL
@@ -31,4 +32,9 @@ export class ProductDetailsComponent implements OnInit{
       this.productService.getProductById(this.productId).subscribe(res => this.product = res)
     });
   }
+  goToProductReservation() {
+    // Rediriger vers la page de réservation du produit en fonction de l'ID du produit
+    this.router.navigate(['/product-reservations', this.productId]);
+  }
+  
 }

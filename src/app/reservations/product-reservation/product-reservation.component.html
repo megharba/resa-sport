@@ -1,0 +1,33 @@
+<p>product-reservation works!</p>
+<!-- product-reservation.component.html -->
+<div class="reservation-form">
+    <h2>Réserver ce produit</h2>
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="userName">Nom de l'utilisateur :</label>
+            <input type="text" id="userName" formControlName="userName">
+            <div *ngIf="reservationForm.get('userName')?.invalid && reservationForm.get('userName')?.touched">
+                <div *ngIf="reservationForm.get('userName')?.hasError('required')">Nom d'utilisateur requis</div>
+            </div>
+        </div>
+        <div>
+            <label for="reservationDate">Date de réservation :</label>
+            <input type="date" id="reservationDate" formControlName="reservationDate">
+            <div
+                *ngIf="reservationForm.get('reservationDate')?.invalid && reservationForm.get('reservationDate')?.touched">
+                <div *ngIf="reservationForm.get('reservationDate')?.hasError('required')">Date de réservation requise
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="reservationTime">Heure de réservation :</label>
+            <input type="time" id="reservationTime" formControlName="reservationTime">
+            <div
+                *ngIf="reservationForm.get('reservationTime')?.invalid && reservationForm.get('reservationTime')?.touched">
+                <div *ngIf="reservationForm.get('reservationTime')?.hasError('required')">Heure de réservation requise
+                </div>
+            </div>
+        </div>
+        <button type="submit" [disabled]="reservationForm.invalid">Réserver</button>
+    </form>
+</div>
