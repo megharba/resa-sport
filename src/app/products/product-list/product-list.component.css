@@ -36,4 +36,31 @@
     font-size: 1.2rem;
     color: #009688;
   }
+  button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
   
+  /* Style au survol */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style au clic */
+  button:active {
+    background-color: #004099;
+  }
+  
+  /* Style pour les boutons "Update" */
+  button.update-btn {
+    background-color: #28a745;
+  }
+  
+  /* Style pour les boutons "Delete" */
+  button.delete-btn {
+    background-color: #dc3545;
+  }

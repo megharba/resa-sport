@@ -14,7 +14,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +25,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [ProductListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
