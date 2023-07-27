@@ -1,10 +1,12 @@
+
+
 <div class="reservation-list">
     <h2>Liste des réservations</h2>
     <div *ngFor="let reservation of reservations">
         <div>
             <h3>{{ reservation.userId }}</h3>
             <p>{{ reservation.reservationDate }}</p>
-            <p>{{ reservation.reservationTime }}</p> 
+            <p>{{ reservation.reservationTime }}</p>
             <button (click)="deleteReservation(reservation.id)">Annuler la réservation</button>
         </div>
     </div>

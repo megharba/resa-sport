@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
-import { ProductListComponent } from '../product-list/product-list.component';
-import { ActivatedRoute, NavigationExtras } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
@@ -39,5 +38,5 @@ export class ProductDetailsComponent implements OnInit{
     };**/
     this.router.navigate(['/product-reservations', this.productId]);
   }
-  
+
 }
